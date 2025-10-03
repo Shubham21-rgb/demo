@@ -10,23 +10,23 @@ jobs:
   cache-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
 
-      - name: prime-cache-0307b75
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: cache-0307b75
+    - name: prime-cache-0307b75
+      id: cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: cache-0307b75
 
-      - name: Show cache result
-        run: echo "Cache result: ${{ steps.cache.outputs.cache-hit }}"
+    - name: Show cache result
+      run: echo "Cache result: ${{ steps.cache.outputs.cache-hit }}"
 
-      - name: Install dependencies
-        run: pip install requests
+    - name: Install dependencies
+      run: pip install requests
