@@ -18,8 +18,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Prime cache
-        id: prime-cache-0307b75
+      - name: prime-cache-0307b75
+        id: cache-0307b75
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
