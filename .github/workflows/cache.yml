@@ -1,7 +1,7 @@
 name: Cache Example
 
 on:
-  workflow_dispatch: # manual trigger
+  workflow_dispatch:
   push:
     branches:
       - main
