@@ -26,7 +26,7 @@ jobs:
         key: cache-0307b75
 
     - name: Show cache result
-      run: echo "Cache result: ${{ steps.prime-cache-0307b75.outputs.cache-hit }}"
+      run: 'echo "Cache result: ${{ steps.prime-cache-0307b75.outputs.cache-hit }}"'
 
     - name: Install dependencies
       run: pip install requests
