@@ -3,10 +3,10 @@ name: Daily Commit - 23f2003481@ds.study.iitm.ac.in  # workflow name includes em
 on:
   schedule:
     - cron: "30 7 * * *"  # daily at 07:30 UTC
-  workflow_dispatch:       # allows manual triggering
+  workflow_dispatch:       # allows manual trigger
 
 jobs:
-  daily-commit-job:         # unique job ID
+  daily_commit_job:  # unique job ID
     name: Daily Commit Job - 23f2003481@ds.study.iitm.ac.in  # job name includes email
     runs-on: ubuntu-latest
     steps:
