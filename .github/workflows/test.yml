@@ -1,15 +1,27 @@
-name: Test Workflow
+name: Daily Commit Automation
 
+# Run once per day at a specific time, e.g., 07:30 UTC
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  schedule:
+    - cron: "30 7 * * *"   # At 07:30 UTC daily
+  workflow_dispatch:       # Allows manual triggering too
 
 jobs:
-  test:
+  daily-commit:
     runs-on: ubuntu-latest
+    name: Commit Daily - 23f2003481@ds.study.iitm.ac.in
     steps:
-    
-      - name: 23f2003481@ds.study.iitm.ac.in
-        run: echo "Hello, world!"
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "23f2003481@ds.study.iitm.ac.in"
+
+      - name: Update File and Commit
+        run: |
+          echo "Daily update: $(date)" >> daily-update.txt
+          git add daily-update.txt
+          git commit -m "Daily automated commit $(date)" || echo "No changes to commit"
+          git push
