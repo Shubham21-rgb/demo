@@ -23,7 +23,7 @@ jobs:
           git config --local user.email "23f2003481@ds.study.iitm.ac.in"
           git config --local user.name "GitHub Actions"
 
-      - name: Update daily file and commit - 23f2003481@ds.study.iitm.ac.in
+      - name: 23f2003481@ds.study.iitm.ac.in
         run: |
           echo "Daily update: $(date)" >> daily-update.txt
           git add daily-update.txt
