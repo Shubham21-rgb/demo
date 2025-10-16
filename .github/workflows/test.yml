@@ -1,5 +1,6 @@
-name: Daily Commit - 23f2003481@ds.study.iitm.ac.in  # <-- email MUST be here
-
+jobs:
+  daily-commit-job:
+    name: Daily Commit Job - 23f2003481@ds.study.iitm.ac.in
 on:
   schedule:
     - cron: "30 7 * * *"  # daily at 07:30 UTC
