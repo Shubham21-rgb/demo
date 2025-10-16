@@ -2,27 +2,29 @@ name: Daily Commit - 23f2003481@ds.study.iitm.ac.in
 
 on:
   schedule:
-    - cron: "30 7 * * *"
+    - cron: "30 7 * * *"  # daily at 07:30 UTC
   workflow_dispatch:
 
 jobs:
-  daily_commit_job:
-    name: Daily Commit Job - 23f2003481@ds.study.iitm.ac.in
+  daily_commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # allows pushing commits
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          persist-credentials: true  # allows git push
 
       - name: Configure Git
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "23f2003481@ds.study.iitm.ac.in"
+          git config --local user.email "23f2003481@ds.study.iitm.ac.in"
+          git config --local user.name "GitHub Actions"
 
-      - name: Update File and Commit
+      - name: Update file and commit
         run: |
           echo "Daily update: $(date)" >> daily-update.txt
           git add daily-update.txt
-          git commit -m "Daily automated commit $(date)" || echo "No changes to commit"
+          git commit -m "Daily automated commit $(date)" || exit 0
           git push
