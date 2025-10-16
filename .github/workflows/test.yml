@@ -1,13 +1,13 @@
-name: Daily Commit - 23f2003481@ds.study.iitm.ac.in  # <-- workflow name includes email
+name: Daily Commit - 23f2003481@ds.study.iitm.ac.in  # <-- email MUST be here
 
 on:
   schedule:
-    - cron: "30 7 * * *"  # run daily at 07:30 UTC
-  workflow_dispatch:
+    - cron: "30 7 * * *"  # daily at 07:30 UTC
+  workflow_dispatch:       # allows manual run
 
 jobs:
-  commit_job:
-    name: Commit Job - 23f2003481@ds.study.iitm.ac.in  # <-- job name includes email
+  daily-commit-job:
+    name: Daily Commit Job - 23f2003481@ds.study.iitm.ac.in  # <-- email here too
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
